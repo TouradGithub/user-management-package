@@ -4,7 +4,7 @@ namespace Tourad\UserManager\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Tourad\UserManager\Models\UserActivity;
+use App\Models\UserActivity;
 
 class ActivityController extends Controller
 {

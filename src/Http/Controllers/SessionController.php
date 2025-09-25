@@ -4,7 +4,7 @@ namespace Tourad\UserManager\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Tourad\UserManager\Models\UserSession;
+use App\Models\UserSession;
 
 class SessionController extends Controller
 {

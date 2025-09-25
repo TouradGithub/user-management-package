@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use Illuminate\View\View;
-use Tourad\UserManager\Models\User;
+use App\Models\User;
 use Tourad\UserManager\Http\Controllers\Controller;
 
 class UserController extends Controller
