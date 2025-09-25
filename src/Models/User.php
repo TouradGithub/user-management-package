@@ -9,14 +9,13 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Tourad\UserManager\Traits\LogsActivity;
 use Tourad\UserManager\Traits\HasUserType;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, SoftDeletes, HasRoles, LogsActivity, HasUserType;
+    use HasFactory, Notifiable, SoftDeletes, HasRoles, LogsActivity, HasUserType;
 
     protected $fillable = [
         'name',
