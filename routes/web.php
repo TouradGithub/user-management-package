@@ -18,6 +18,11 @@ use Tourad\UserManager\Http\Controllers\ProfileController;
 // Authentication Routes
 Route::name('user-manager.')->group(function () {
     
+    // Redirect root to dashboard if authenticated, otherwise to login
+    Route::get('/', function () {
+        return auth()->check() ? redirect()->route('user-manager.dashboard') : redirect()->route('user-manager.login');
+    })->name('home');
+    
     // Guest Routes (Login)
     Route::middleware('guest')->group(function () {
         Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -62,9 +67,4 @@ Route::name('user-manager.')->group(function () {
         Route::get('/settings', [DashboardController::class, 'settings'])->name('settings');
         Route::post('/settings', [DashboardController::class, 'updateSettings'])->name('settings.update');
     });
-    
-    // Redirect root to dashboard if authenticated, otherwise to login
-    Route::get('/', function () {
-        return auth()->check() ? redirect()->route('user-manager.dashboard') : redirect()->route('user-manager.login');
-    })->name('home');
 });

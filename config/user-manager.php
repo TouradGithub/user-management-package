@@ -16,7 +16,7 @@ return [
     'api_route_prefix' => 'api/user-manager',
     
     // Middleware
-    'middleware' => ['web', 'auth'],
+    'middleware' => ['web'],
     'api_middleware' => ['api', 'auth:sanctum'],
 
     // User Model
