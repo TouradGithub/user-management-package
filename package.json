@@ -1,0 +1,34 @@
+{
+  "name": "tourad/user-manager",
+  "version": "1.0.0",
+  "description": "حزمة إدارة المستخدمين الشاملة للارافيل مع واجهة عربية",
+  "features": [
+    "إدارة المستخدمين الكاملة",
+    "نظام الأدوار والصلاحيات",
+    "أنواع المستخدمين",
+    "تتبع النشاطات",
+    "إدارة الجلسات",
+    "واجهة عربية RTL",
+    "حماية أمنية متقدمة",
+    "Bootstrap 5.3"
+  ],
+  "requirements": {
+    "php": ">=8.0",
+    "laravel": ">=9.0",
+    "mysql": ">=5.7"
+  },
+  "installation": {
+    "composer": "composer require tourad/user-manager",
+    "publish": "php artisan vendor:publish --tag=user-manager-config",
+    "migrate": "php artisan migrate",
+    "install": "php artisan user-manager:install"
+  },
+  "routes": {
+    "login": "/user-manager/login",
+    "dashboard": "/user-manager/dashboard",
+    "users": "/user-manager/users",
+    "user-types": "/user-manager/user-types",
+    "activities": "/user-manager/activities",
+    "sessions": "/user-manager/sessions"
+  }
+}

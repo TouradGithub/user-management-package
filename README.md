@@ -1,6 +1,6 @@
-# Laravel User Manager Package
+# User Management Package
 
-A comprehensive Laravel package for advanced user management with roles, permissions, user types, session tracking, activity logging, and much more.
+حزمة إدارة المستخدمين الشاملة للارافيل مع واجهة مستخدم باللغة العربية
 
 ## Features
 

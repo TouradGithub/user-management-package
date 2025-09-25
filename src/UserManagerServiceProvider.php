@@ -77,18 +77,10 @@ class UserManagerServiceProvider extends ServiceProvider
     {
         Route::group([
             'prefix' => config('user-manager.route_prefix', 'user-manager'),
-            'middleware' => config('user-manager.middleware', ['web', 'auth']),
+            'middleware' => config('user-manager.middleware', ['web']),
             'namespace' => 'Tourad\UserManager\Http\Controllers',
         ], function () {
             $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
-        });
-
-        Route::group([
-            'prefix' => config('user-manager.api_route_prefix', 'api/user-manager'),
-            'middleware' => config('user-manager.api_middleware', ['api', 'auth:sanctum']),
-            'namespace' => 'Tourad\UserManager\Http\Controllers\Api',
-        ], function () {
-            $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
         });
     }
 }
