@@ -5,7 +5,7 @@ namespace Tourad\UserManager\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Hash;
-use App\Models\UserSession;
+use Tourad\UserManager\Models\UserSession;
 
 class ProfileController extends Controller
 {

@@ -4,8 +4,7 @@ namespace Tourad\UserManager\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use App\Models\UserType;
-
+use Tourad\UserManager\Models\UserType;
 class UserTypeController extends Controller
 {
     public function index(): View
