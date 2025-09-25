@@ -1,0 +1,41 @@
+# Handle line endings automatically for files detected as text
+* text=auto
+
+# Explicitly declare text files you want to always be normalized and converted
+# to native line endings on checkout.
+*.php text
+*.js text
+*.css text
+*.json text
+*.md text
+*.yml text
+*.yaml text
+*.xml text
+*.txt text
+*.sql text
+
+# Declare files that will always have LF line endings on checkout.
+*.blade.php text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+
+# Export ignore - these files/folders will not be included when the package is installed
+tests/ export-ignore
+.github/ export-ignore
+.gitignore export-ignore
+.gitattributes export-ignore
+phpunit.xml export-ignore
+*.md export-ignore
+CHANGELOG.md export-ignore
+CONTRIBUTING.md export-ignore
+LICENSE export-ignore

@@ -1,27 +1,30 @@
 {
     "name": "tourad/laravel-user-manager",
-    "description": "A comprehensive Laravel package for advanced user management with roles, permissions, user types, session tracking, activity logging, and security features",
+    "description": "A comprehensive Laravel package for advanced user management with user types, session tracking, activity logging, and beautiful Arabic RTL dashboard.",
     "version": "2.0.0",
     "type": "library",
-    "keywords": ["laravel", "user-management", "roles", "permissions", "authentication", "user-types", "session-tracking", "activity-logging", "security"],
+    "keywords": ["laravel", "user-management", "authentication", "arabic", "rtl", "dashboard", "user-types", "session-tracking", "activity-logging", "bootstrap", "security"],
     "license": "MIT",
+    "homepage": "https://github.com/TouradGithub/user-management-package",
+    "support": {
+        "issues": "https://github.com/TouradGithub/user-management-package/issues",
+        "source": "https://github.com/TouradGithub/user-management-package"
+    },
     "authors": [
         {
             "name": "Tourad",
             "email": "touradmedlemin17734@example.com",
+            "homepage": "https://github.com/TouradGithub",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.0",
-        "illuminate/support": "^8.0|^9.0|^10.0|^11.0",
-        "illuminate/database": "^8.0|^9.0|^10.0|^11.0",
-        "illuminate/auth": "^8.0|^9.0|^10.0|^11.0",
+        "php": "^8.0|^8.1|^8.2|^8.3",
         "spatie/laravel-permission": "^5.0|^6.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.0|^10.0",
-        "orchestra/testbench": "^6.0|^7.0|^8.0|^9.0"
+        "phpunit/phpunit": "^9.0|^10.0|^11.0",
+        "orchestra/testbench": "^7.0|^8.0|^9.0"
     },
     "autoload": {
         "psr-4": {
@@ -42,6 +45,13 @@
                 "UserManager": "Tourad\\UserManager\\Facades\\UserManager"
             }
         }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test-coverage": "phpunit --coverage-html coverage"
     },
     "minimum-stability": "dev",
     "prefer-stable": true
