@@ -4,11 +4,11 @@ namespace Tourad\UserManager\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Tourad\UserManager\Models\User;
-use Tourad\UserManager\Models\UserType;
-use Tourad\UserManager\Models\UserActivity;
-use Tourad\UserManager\Models\UserSession;
-use Tourad\UserManager\Models\UserLoginAttempt;
+use App\Models\User;
+use App\Models\UserType;
+use App\Models\UserActivity;
+use App\Models\UserSession;
+use App\Models\UserLoginAttempt;
 use Tourad\UserManager\UserManagerService;
 
 class DashboardController extends Controller
@@ -38,7 +38,7 @@ class DashboardController extends Controller
             ->get();
         
         // Get user's active sessions
-        $activeSessions = $user->sessions()->active()->get();
+        $activeSessions = $user->sessions()->where('is_active', true)->get();
         
         // Get recent login attempts
         $recentLoginAttempts = UserLoginAttempt::orderBy('created_at', 'desc')
@@ -60,11 +60,10 @@ class DashboardController extends Controller
     protected function getUserStats(): array
     {
         $totalUsers = User::count();
-        $activeUsers = User::active()->count();
-        $inactiveUsers = User::inactive()->count();
-        $verifiedUsers = User::verified()->count();
-        $unverifiedUsers = User::unverified()->count();
-        $deletedUsers = User::onlyTrashed()->count();
+        $activeUsers = User::where('is_active', true)->count();
+        $inactiveUsers = User::where('is_active', false)->count();
+        $verifiedUsers = User::whereNotNull('email_verified_at')->count();
+        $unverifiedUsers = User::whereNull('email_verified_at')->count();
         
         // Users created today
         $usersToday = User::whereDate('created_at', today())->count();
@@ -81,7 +80,7 @@ class DashboardController extends Controller
             ->count();
         
         // Recently active users (last 7 days)
-        $recentlyActive = User::recentlyActive(7)->count();
+        $recentlyActive = User::where('updated_at', '>=', now()->subDays(7))->count();
         
         // User types distribution
         $userTypes = UserType::withCount('users')
@@ -90,10 +89,10 @@ class DashboardController extends Controller
             ->toArray();
         
         // Active sessions count
-        $activeSessions = UserSession::active()->count();
+        $activeSessions = UserSession::where('is_active', true)->count();
         
         // Failed login attempts today
-        $failedAttemptsToday = UserLoginAttempt::failed()
+        $failedAttemptsToday = UserLoginAttempt::where('is_successful', false)
             ->whereDate('created_at', today())
             ->count();
         

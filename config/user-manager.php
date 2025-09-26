@@ -10,6 +10,7 @@ return [
     | Here you may configure your settings for the User Manager package.
     |
     */
+    'layout' => 'layouts.admin',
 
     // Route configurations
     'route_prefix' => 'user-manager',
